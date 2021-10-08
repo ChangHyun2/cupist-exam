@@ -7,6 +7,8 @@ const {
   POSTCSS_MODES,
 } = require("@craco/craco");
 
+// emotion
+// https://github.com/emotion-js/emotion/issues/1123
 const emotionPresetOptions = {};
 
 const emotionBabelPreset = require("@emotion/babel-preset-css-prop").default(
@@ -14,67 +16,20 @@ const emotionBabelPreset = require("@emotion/babel-preset-css-prop").default(
   emotionPresetOptions
 );
 
+// craco alias
+const CracoAlias = require("craco-alias");
+const cracoAliasPlugin = {
+  plugin: CracoAlias,
+  options: {
+    source: "tsconfig",
+    baseUrl: "./src",
+    tsConfigPath: "./tsconfig.extend.json",
+  },
+};
+
 module.exports = {
-  style: {
-    modules: {
-      localIdentName: "",
-    },
-  },
   babel: {
-    presets: [],
-    plugins: [
-      ...emotionBabelPreset.plugins,
-      // your other plugins
-    ],
-    loaderOptions: (babelLoaderOptions, { env, paths }) => {
-      return babelLoaderOptions;
-    },
+    plugins: [...emotionBabelPreset.plugins],
   },
-  typescript: {
-    enableTypeChecking: true /* (default value)  */,
-  },
-  webpack: {
-    alias: {},
-    plugins: {
-      add: [] /* An array of plugins */,
-      remove:
-        [] /* An array of plugin constructor's names (i.e. "StyleLintPlugin", "ESLintWebpackPlugin" ) */,
-    },
-    configure: (webpackConfig, { env, paths }) => {
-      return webpackConfig;
-    },
-  },
-  devServer: (devServerConfig, { env, paths, proxy, allowedHost }) => {
-    return devServerConfig;
-  },
-  plugins: [
-    {
-      plugin: {
-        overrideCracoConfig: ({
-          cracoConfig,
-          pluginOptions,
-          context: { env, paths },
-        }) => {
-          return cracoConfig;
-        },
-        overrideWebpackConfig: ({
-          webpackConfig,
-          cracoConfig,
-          pluginOptions,
-          context: { env, paths },
-        }) => {
-          return webpackConfig;
-        },
-        overrideDevServerConfig: ({
-          devServerConfig,
-          cracoConfig,
-          pluginOptions,
-          context: { env, paths, proxy, allowedHost },
-        }) => {
-          return devServerConfig;
-        },
-      },
-      options: {},
-    },
-  ],
+  plugins: [cracoAliasPlugin],
 };
