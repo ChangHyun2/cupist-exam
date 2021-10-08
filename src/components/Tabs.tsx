@@ -7,15 +7,13 @@ const StyledTabIndicator = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
-  border-top-style: solid;
-  border-top-width: 1px;
+  border: 1px solid;
 `;
 
 const StyledTabs = styled.div`
   position: relative;
   list-style: none;
-  height: 30px;
-  ${s.row}
+  ${s.rowCenter}
 `;
 
 interface I_Tabs {
@@ -39,7 +37,7 @@ export default function Tabs({
   const dsIndicator = [
     `transition: transform ${duration}ms`,
     `width: ${100 / children.length}%`,
-    `transform: translate(${100 * focusedIdx}%,-${100}%)`,
+    `transform: translate(${100 * focusedIdx}%, -${100}%)`,
   ];
 
   return (

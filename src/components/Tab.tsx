@@ -1,8 +1,8 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import s from "csd";
 
 const StyledTab = styled.li`
-  flex: 1;
   height: 100%;
 
   button {
@@ -22,17 +22,17 @@ interface I_Tab {
 }
 
 export default function Tab({ title, onClick, isFocused, ...rest }: I_Tab) {
-  const ds = [`color: ${isFocused ? "#000" : "#777"}`];
+  const ds = [`color: ${isFocused ? s.colors.black : s.colors.grey[400]}`];
 
   return (
-    <StyledTab
-      onClick={onClick}
-      css={css`
-        ${ds.join(";")}
-      `}
-      {...rest}
-    >
-      <button>{title}</button>
+    <StyledTab onClick={onClick} {...rest}>
+      <button
+        css={css`
+          ${ds.join(";")}
+        `}
+      >
+        {title}
+      </button>
     </StyledTab>
   );
 }
