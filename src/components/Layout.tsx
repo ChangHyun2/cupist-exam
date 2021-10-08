@@ -16,7 +16,7 @@ const StyledLayout = styled.div`
 export default function Layout({ children }: I_LayoutProps) {
   return (
     <StyledLayout>
-      <main>{children}</main>
+      {children}
       <FootNav />
     </StyledLayout>
   );
