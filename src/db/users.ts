@@ -65,6 +65,7 @@ export const females: Array<I_User> = Array(10)
     if (i === 0) {
       copied.name = "sd";
     }
+
     return copied;
   });
 

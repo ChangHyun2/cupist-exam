@@ -11,13 +11,13 @@ import ProfileCardWithCarousel from "@components/ProfileCardWithCarousel";
 import FilterListIcon from "@mui/icons-material/FilterList";
 
 const Pane1 = () => {
-  return <div>1</div>;
+  return <div>Slider1</div>;
 };
 const Pane2 = () => {
-  return <div>2</div>;
+  return <div>Slider2</div>;
 };
 const Pane3 = () => {
-  return <div>3</div>;
+  return <div>Slider3</div>;
 };
 
 const StyledTabs = styled(Tabs)`

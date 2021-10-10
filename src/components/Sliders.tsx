@@ -6,10 +6,9 @@ const StyledOuterSliders = styled.div`
 `;
 const StyledSliders = styled.div`
   display: flex;
-  flex-wrap: no-wrap;
   width: 100%;
 
-  div {
+  > div {
     flex-shrink: 0;
     width: 100%;
   }
@@ -19,6 +18,7 @@ interface I_Sliders {
   focusedIdx: number;
   children?: Array<JSX.Element>;
   duration?: number;
+  css?: any;
 }
 
 export default function Sliders({
