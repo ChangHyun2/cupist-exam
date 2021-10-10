@@ -15,6 +15,8 @@ import s from "csd";
 
 const StyledFootNav = styled.nav`
   position: fixed;
+  left: 0;
+  right: 0;
   bottom: 0;
   width: 100%;
   max-width: 500px;
@@ -44,35 +46,45 @@ const StyledFootNav = styled.nav`
   }
 `;
 
+const StyledFootNavOffset = styled.div`
+  height: 50px;
+`;
+
 export default function FootNav() {
   const location = useLocation();
 
   return (
-    <StyledFootNav>
-      <ul>
-        {[
-          { path: "/", Icon: { Off: HomeOutlinedIcon, On: HomeIcon } },
-          { path: "/feed", Icon: { Off: GridViewIcon, On: GridViewSharpIcon } },
-          {
-            path: "/like",
-            Icon: { Off: FavoriteBorderIcon, On: FavoriteIcon },
-          },
-          {
-            path: "/message",
-            Icon: { Off: ChatBubbleOutlineIcon, On: ChatBubbleIcon },
-          },
-          {
-            path: "/user",
-            Icon: { Off: PersonOutlineIcon, On: PersonIcon },
-          },
-        ].map(({ path, Icon }) => (
-          <li key={path}>
-            <Link to={path}>
-              {location.pathname === path ? <Icon.On /> : <Icon.Off />}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </StyledFootNav>
+    <div>
+      <StyledFootNavOffset />
+      <StyledFootNav>
+        <ul>
+          {[
+            { path: "/", Icon: { Off: HomeOutlinedIcon, On: HomeIcon } },
+            {
+              path: "/feed",
+              Icon: { Off: GridViewIcon, On: GridViewSharpIcon },
+            },
+            {
+              path: "/like",
+              Icon: { Off: FavoriteBorderIcon, On: FavoriteIcon },
+            },
+            {
+              path: "/message",
+              Icon: { Off: ChatBubbleOutlineIcon, On: ChatBubbleIcon },
+            },
+            {
+              path: "/user",
+              Icon: { Off: PersonOutlineIcon, On: PersonIcon },
+            },
+          ].map(({ path, Icon }) => (
+            <li key={path}>
+              <Link to={path}>
+                {location.pathname === path ? <Icon.On /> : <Icon.Off />}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </StyledFootNav>
+    </div>
   );
 }
