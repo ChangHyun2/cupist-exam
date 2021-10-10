@@ -18,15 +18,22 @@ const themes = {
   },
 };
 
-interface I_ButtonProps {
+interface I_BaseButtonProps {
   onClick?: (e: React.MouseEvent) => void;
-  children: JSX.Element | string;
   theme?: "blue" | "grey";
-  fluid?: boolean;
   size?: "xs" | "sm";
   disabled?: boolean;
   css?: any;
+}
+
+interface I_ButtonProps extends I_BaseButtonProps {
+  children: JSX.Element | string;
+  fluid?: boolean;
   variant?: "normal" | "outline";
+}
+interface I_IconButtonProps extends I_BaseButtonProps {
+  Icon: React.FC;
+  children?: JSX.Element | string;
 }
 
 const StyledButton = styled.button`
@@ -94,6 +101,66 @@ const Button = React.forwardRef<HTMLButtonElement, I_ButtonProps>(
     >
       {children}
     </StyledButton>
+  )
+);
+
+const StyledIconButton = styled.button`
+  ${s.rowSpaceBetween}
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  outline: none;
+  cursor: pointer;
+  background: none;
+  font-size: inherit;
+  border: none;
+  padding: none;
+  background-color: none;
+  -webkit-padding-before: 0px;
+  -webkit-padding-end: 0px;
+  -webkit-padding-after: 0px;
+  -webkit-padding-start: 0px;
+
+  ${({ size, theme }: { theme: "blue" | "grey"; size: "xs" | "sm" }) => {
+    const themeColor = themes[theme];
+
+    return `    
+    color: ${themeColor.text};
+    svg{
+      ${size === "xs" ? s.h16 : s.h22}
+    }
+`;
+  }}
+`;
+
+export const IconButton = React.forwardRef<
+  HTMLButtonElement,
+  I_IconButtonProps
+>(
+  (
+    {
+      onClick,
+      children,
+      size = "sm",
+      theme = "blue",
+      disabled = false,
+      Icon,
+      ...rest
+    },
+    ref
+  ) => (
+    <StyledIconButton
+      ref={ref}
+      size={size}
+      theme={theme}
+      disabled={disabled}
+      onClick={onClick}
+      {...rest}
+    >
+      <Icon />
+    </StyledIconButton>
   )
 );
 

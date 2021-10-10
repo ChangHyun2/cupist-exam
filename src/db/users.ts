@@ -2,11 +2,9 @@ import { v4 as uuidv4 } from "uuid";
 import { I_User } from "@types";
 import { CatchingPokemon } from "@mui/icons-material";
 
+const IMG_URL = "https://picsum.photos/200/300";
 const copyObj = (obj: { [index: string]: any }) =>
   JSON.parse(JSON.stringify(obj));
-
-const IMG1_URL =
-  "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d29tYW58ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60";
 
 export const user: I_User = {
   id: uuidv4(),
@@ -14,7 +12,7 @@ export const user: I_User = {
   nickname: "루루링",
   company: "큐피스트",
   introduction: "안녕하세요",
-  thumbnail: IMG1_URL,
+  thumbnail: IMG_URL,
   age: 20,
   height: 170,
   isOnline: true,
@@ -50,11 +48,7 @@ export const user: I_User = {
   personalities: ["감성적인", "낙천적인", "성실한"],
   race: ["아시아계", "한국인"],
   concerns: ["IT", "스퐃/운동", "인테리어"],
-  photos: [
-    "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d29tYW58ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60",
-    "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d29tYW58ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60",
-    "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d29tYW58ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60",
-  ],
+  photos: [IMG_URL, IMG_URL, IMG_URL],
 };
 
 export const me: I_User = {
@@ -63,7 +57,7 @@ export const me: I_User = {
   nickname: "창현창현",
   company: "큐피스트",
   introduction: "프론트엔드 개발자입니다.",
-  thumbnail: IMG1_URL,
+  thumbnail: IMG_URL,
   age: 29,
   height: 172,
   isOnline: true,
@@ -99,11 +93,7 @@ export const me: I_User = {
   personalities: ["감성적인", "낙천적인", "성실한"],
   race: ["아시아계", "한국인"],
   concerns: ["IT", "스퐃/운동", "인테리어"],
-  photos: [
-    "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d29tYW58ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60",
-    "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d29tYW58ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60",
-    "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d29tYW58ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60",
-  ],
+  photos: [IMG_URL, IMG_URL, IMG_URL],
 };
 
 export const females: Array<I_User> = Array(20)
@@ -112,6 +102,9 @@ export const females: Array<I_User> = Array(20)
     const copied = copyObj(user) as I_User;
     copied.id = uuidv4();
     copied.nickname = `user-${copied.id.slice(0, 5)}`;
+    copied.photos = Array(Math.floor(Math.random() * 7) + 1)
+      .fill(0)
+      .map((_) => user.photos[0]);
 
     return copied;
   });
@@ -122,5 +115,9 @@ export const males: Array<I_User> = Array(20)
     const copied = copyObj(user) as I_User;
     copied.gender = "male";
     copied.id = uuidv4();
+    copied.nickname = `user-${copied.id.slice(0, 5)}`;
+    copied.photos = Array(Math.floor(Math.random() * 7) + 1)
+      .fill(0)
+      .map((_) => user.photos[0]);
     return copied;
   });

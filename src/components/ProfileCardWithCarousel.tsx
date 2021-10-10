@@ -46,6 +46,7 @@ const ProfileDetail = () => <InfoIcon />;
 interface I_ProfileCardWithCarouselProps {
   user: I_User;
 }
+
 export default function ProfileCardWithCarousel({
   user,
 }: I_ProfileCardWithCarouselProps) {
@@ -135,7 +136,7 @@ export default function ProfileCardWithCarousel({
               }
             `}
           >
-            <div>{[user.name, user.age].join(",")}</div>
+            <div>{[user.nickname, user.age].join(",")}</div>
             {user.isOnline && (
               <CheckCircleIcon
                 css={css`

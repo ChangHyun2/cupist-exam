@@ -2,16 +2,20 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import { homePage, userPage } from "@pages";
 import Layout from "@components/Layout";
+import { AuthContextProvider } from "@context/auth";
+import { me } from "@db/users";
 
 function App() {
   return (
     <Router>
-      <Layout>
-        <Switch>
-          <Route path="/" component={homePage} exact />
-          <Route path="/user" component={userPage} />
-        </Switch>
-      </Layout>
+      <AuthContextProvider value={me}>
+        <Layout>
+          <Switch>
+            <Route path="/" component={homePage} exact />
+            <Route path="/user" component={userPage} />
+          </Switch>
+        </Layout>
+      </AuthContextProvider>
     </Router>
   );
 }
