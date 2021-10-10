@@ -1,11 +1,13 @@
 import s from "csd";
 import { useState } from "react";
 import styled from "@emotion/styled";
+import { I_User } from "@types";
 
+import RecommendUsers from "@components/RecommendUsers";
 import Sliders from "@components/Sliders";
 import Tabs from "@components/Tabs";
 import Tab from "@components/Tab";
-import SearchUsers from "@components/SearchUsers";
+import ProfileCardWithCarousel from "@components/ProfileCardWithCarousel";
 import FilterListIcon from "@mui/icons-material/FilterList";
 
 const Pane1 = () => {
@@ -33,14 +35,23 @@ const StyledTabs = styled(Tabs)`
 `;
 
 const StyledHomePage = styled.div`
-  position: relative;
   width: 100%;
 
   header {
+    position: sticky;
+    top: 0;
+    background-color: ${s.colors.white};
+    z-index: 1;
     padding: 10px 10px 0 10px;
-    width: 100%;
     ${s.rowSpaceBetween};
     border-bottom: 1px solid ${s.colors.grey[50]};
+    width: 100%;
+  }
+
+  main {
+    position: relative;
+    width: 100%;
+    contain: content;
   }
 `;
 
@@ -59,11 +70,13 @@ export default function HomePage() {
           <FilterListIcon />
         </div>
       </header>
-      <Sliders focusedIdx={focusedIdx}>
-        <Pane1 />
-        <Pane2 />
-        <Pane3 />
-      </Sliders>
+      <main>
+        <Sliders focusedIdx={focusedIdx}>
+          <RecommendUsers />
+          <Pane2 />
+          <Pane3 />
+        </Sliders>
+      </main>
     </StyledHomePage>
   );
 }

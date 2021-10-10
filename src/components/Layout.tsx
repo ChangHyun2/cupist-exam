@@ -10,7 +10,6 @@ interface I_LayoutProps {
 const StyledLayout = styled.div`
   max-width: 500px;
   ${s.colCenter}
-  border: 1px solid;
 `;
 
 export default function Layout({ children }: I_LayoutProps) {
