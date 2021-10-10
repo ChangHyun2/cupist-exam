@@ -5,6 +5,7 @@ import s from "csd";
 import { I_User } from "@types";
 
 import Sliders from "@components/Sliders";
+import Button from "@components/Button";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import InfoIcon from "@mui/icons-material/Info";
 import CloseIcon from "@mui/icons-material/Close";
@@ -169,35 +170,29 @@ export default function ProfileCardWithCarousel({
             button {
               height: 34px;
               width: 34px;
-              ${s.rowCenter};
-              ${s.h12}
-              color: inherit;
-              border: none;
-              border-radius: 5px;
-              background-color: ${s.colors.blue[400]};
               margin-right: 4px;
             }
+
             button:last-of-type {
               margin-right: 0;
             }
 
             svg {
               font-size: 18px;
+              margin-top: -2px;
             }
           `}
         >
-          <button
+          <Button
             onClick={(e) => {
               e.stopPropagation();
               setShow(false);
             }}
-            css={css`
-              background-color: ${s.colors.grey[600]} !important;
-            `}
+            theme="grey"
           >
             <CloseIcon />
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={(e) => {
               e.stopPropagation();
             }}
@@ -206,14 +201,14 @@ export default function ProfileCardWithCarousel({
             `}
           >
             좋아요
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={(e) => {
               e.stopPropagation();
             }}
           >
             <StarIcon />
-          </button>
+          </Button>
         </div>
       </div>
       <div

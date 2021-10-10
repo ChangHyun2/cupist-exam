@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { useUsers } from "@hooks";
 
 import ProfileCardWithCarousel from "@components/ProfileCardWithCarousel";
+import ProfileCard from "@components/ProfileCard";
 
 const StyledRecommendUsers = styled.div`
   padding: 5px;
@@ -29,6 +30,7 @@ export default function RecommendUsers() {
   if (users.status === "resolved") {
     return (
       <StyledRecommendUsers>
+        {users.data ? <ProfileCard user={users.data[0]} /> : null}
         {users.data?.map((user) => (
           <ProfileCardWithCarousel user={user} />
         ))}
