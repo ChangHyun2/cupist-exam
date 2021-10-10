@@ -97,7 +97,7 @@ export default function ProfileCardWithCarousel({
       <Sliders
         focusedIdx={focusedIdx}
         css={css`
-          width: 100%;
+          height: 100%;
 
           img {
             width: 100%;
@@ -124,6 +124,8 @@ export default function ProfileCardWithCarousel({
           <div
             css={css`
               ${s.row}
+              ${s.bold}
+              ${s.h18}
 
               * {
                 margin-right: 2px;
@@ -168,8 +170,8 @@ export default function ProfileCardWithCarousel({
             margin-top: 10px;
 
             button {
-              height: 34px;
-              width: 34px;
+              height: 45px;
+              width: 45px;
               margin-right: 4px;
             }
 

@@ -1,18 +1,13 @@
 import s from "csd";
 import { useState } from "react";
 import styled from "@emotion/styled";
-import { I_User } from "@types";
 
 import RecommendUsers from "@components/RecommendUsers";
 import Sliders from "@components/Sliders";
 import Tabs from "@components/Tabs";
 import Tab from "@components/Tab";
-import ProfileCardWithCarousel from "@components/ProfileCardWithCarousel";
 import FilterListIcon from "@mui/icons-material/FilterList";
 
-const Pane1 = () => {
-  return <div>Slider1</div>;
-};
 const Pane2 = () => {
   return <div>Slider2</div>;
 };
@@ -21,15 +16,17 @@ const Pane3 = () => {
 };
 
 const StyledTabs = styled(Tabs)`
-  width: 150px;
+  width: 50%;
 
   li {
     width: 33.33%;
     padding: 5px 0;
 
     button {
-      ${s.typo.h14};
-      ${s.typo.bold};
+      white-space: nowrap;
+
+      ${s.h16};
+      ${s.bold};
     }
   }
 `;

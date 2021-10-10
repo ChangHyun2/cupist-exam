@@ -125,3 +125,4 @@ export interface I_User {
 }
 
 export type T_Users = Array<I_User>;
+export type T_RecommendedUsers = Array<I_User | Array<I_User>>;

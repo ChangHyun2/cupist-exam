@@ -40,6 +40,7 @@ export default function Sliders({
         css={css`
           ${ds.join(";")}
         `}
+        {...rest}
       >
         {children}
       </StyledSliders>

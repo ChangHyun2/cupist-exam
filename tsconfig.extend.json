@@ -2,8 +2,11 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
+      "@db/*": ["./db/*"],
+      "@api": ["./api"],
       "@pages": ["./pages"],
       "@hooks": ["./hooks"],
+      "@context/*": ["./context/*"],
       "@components/*": ["./components/*"],
       "@utils": ["./utils"],
       "@types": ["../node_modules/@types", "./types"],

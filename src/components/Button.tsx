@@ -3,8 +3,8 @@ import s from "csd";
 import styled from "@emotion/styled";
 
 const sizeCSS = {
-  xs: "padding: 5px 10px; font-size: 10px; border-radius: 3px;",
-  sm: "padding: 10px 20px; font-size: 12px; border-radius: 5px;",
+  xs: "padding: 5px 10px; font-size: 12px; border-radius: 3px;",
+  sm: "padding: 13px 26px; font-size: 16px; border-radius: 5px;",
 };
 
 const themes = {
@@ -26,6 +26,7 @@ interface I_ButtonProps {
   size?: "xs" | "sm";
   disabled?: boolean;
   css?: any;
+  variant?: "normal" | "outline";
 }
 
 const StyledButton = styled.button`
@@ -41,23 +42,27 @@ const StyledButton = styled.button`
   cursor: pointer;
   background: none;
   font-size: inherit;
-  border: none;
+  border: 1px solid;
+  ${s.bold}
 
   ${({
     size,
     theme,
     fluid,
+    variant,
   }: {
     theme: "blue" | "grey";
     fluid: boolean;
     size: "xs" | "sm";
+    variant: "normal" | "outline";
   }) => {
     const themeColor = themes[theme];
 
     return `
     ${sizeCSS[size]}
-    background-color: ${themeColor.bg};
-    color: ${themeColor.text};
+    border-color: ${themeColor.bg};    
+    background-color: ${variant === "outline" ? s.colors.white : themeColor.bg};
+    color: ${variant === "outline" ? s.colors.black : themeColor.text};
     ${fluid ? "width: 100%;" : ""}
   `;
   }}
@@ -72,6 +77,7 @@ const Button = React.forwardRef<HTMLButtonElement, I_ButtonProps>(
       theme = "blue",
       fluid = false,
       disabled = false,
+      variant = "normal",
       ...rest
     },
     ref
@@ -80,6 +86,7 @@ const Button = React.forwardRef<HTMLButtonElement, I_ButtonProps>(
       ref={ref}
       size={size}
       theme={theme}
+      variant={variant}
       fluid={fluid}
       disabled={disabled}
       onClick={onClick}

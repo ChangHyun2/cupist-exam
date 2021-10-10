@@ -5,26 +5,30 @@ import s from "csd";
 
 interface I_ProfileCardProps {
   user: I_User;
+  css?: any;
 }
 
-export default function ProfileCard({ user }: I_ProfileCardProps) {
+export default function ProfileCard({ user, ...rest }: I_ProfileCardProps) {
   return (
     <div
+      {...rest}
       css={css`
-        width: 50%;
+        ${s.col}
+        height: 100%;
+        width: 100%;
         border-radius: 10px;
         overflow: hidden;
       `}
     >
       <div
         css={css`
+          flex: 1;
           width: 100%;
           position: relative;
 
-          &:after {
-            content: "";
-            display: block;
-            padding-top: 100%;
+          img {
+            width: 100%;
+            height: 100%;
           }
 
           div {
@@ -33,12 +37,6 @@ export default function ProfileCard({ user }: I_ProfileCardProps) {
             left: 0;
             right: 0;
             bottom: 0;
-
-            img {
-              object-fit: cover;
-              width: 100%;
-              height: 100%;
-            }
           }
         `}
       >
@@ -53,7 +51,7 @@ export default function ProfileCard({ user }: I_ProfileCardProps) {
           background-color: ${s.colors.grey[800]};
           color: white;
           padding: 2px 8px 8px 8px;
-          font-size: 8px;
+          ${s.h10}
 
           > div {
             margin-bottom: 2px;
@@ -65,7 +63,7 @@ export default function ProfileCard({ user }: I_ProfileCardProps) {
       >
         <div
           css={css`
-            ${s.h12}
+            ${s.h14}
             ${s.bold}
           `}
         >
@@ -78,7 +76,6 @@ export default function ProfileCard({ user }: I_ProfileCardProps) {
           fluid={true}
           css={css`
             margin-top: 4px;
-            background-color: ${s.colors.blue[500]};
           `}
         >
           보기
