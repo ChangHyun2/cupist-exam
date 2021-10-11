@@ -47,7 +47,7 @@ const usersReducer: Reducer<T_State, T_Action> = (state, action) => {
   }
 };
 
-export const useUsers = (): T_State => {
+const useUsers = (): T_State => {
   const [state, dispatch] = useReducer(usersReducer, initialState);
 
   useEffect(() => {
@@ -72,3 +72,5 @@ export const useUsers = (): T_State => {
 
   return state;
 };
+
+export default useUsers;
