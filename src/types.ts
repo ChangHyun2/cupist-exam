@@ -40,7 +40,7 @@ export interface I_Education {
   name: string;
 }
 
-export type T_PercentsOf3 = 0 | 0.5 | 1;
+export type T_Freq3 = 0 | 0.5 | 1;
 
 export type T_Personality =
   | "도도한"
@@ -110,8 +110,8 @@ export interface I_User {
   bloodType: T_BloodType;
   bodyType: T_BodyType;
   religion: T_Religion;
-  drinkingFreq: T_PercentsOf3;
-  smokingFreq: T_PercentsOf3;
+  drinkingFreq: T_Freq3;
+  smokingFreq: T_Freq3;
   birthday: I_BirthDay;
   location: I_Location;
   education: I_Education;

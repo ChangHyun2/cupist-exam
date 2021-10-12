@@ -2,14 +2,16 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "@db/*": ["./db/*"],
+      "@constant": ["./constant"],
       "@api": ["./api"],
       "@pages": ["./pages"],
       "@hooks": ["./hooks"],
-      "@context/*": ["./context/*"],
-      "@components/*": ["./components/*"],
       "@utils": ["./utils"],
       "@types": ["../node_modules/@types", "./types"],
+      "@db/*": ["./db/*"],
+      "@context/*": ["./context/*"],
+      "@UI/*": ["./components/UI/*"],
+      "@components/*": ["./components/*"],
       "S": ["./S"]
     }
   }

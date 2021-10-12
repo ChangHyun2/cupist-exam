@@ -8,6 +8,7 @@ const Divider = styled.div`
   line-height: 0;
   border-bottom: 1px solid ${s.colors.grey[100]};
   box-shadow: 0 0 1px ${s.colors.grey[200]};
+  ${s.mb1}
 `;
 
 export default Divider;

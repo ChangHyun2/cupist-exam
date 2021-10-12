@@ -3,9 +3,9 @@ import { useState } from "react";
 import styled from "@emotion/styled";
 
 import RecommendUsers from "@components/RecommendUsers";
-import Sliders from "@components/Sliders";
-import Tabs from "@components/Tabs";
-import Tab from "@components/Tab";
+import Sliders from "@components/UI/Sliders";
+import Tabs from "@UI/Tabs";
+import Tab from "@UI/Tab";
 import FilterListIcon from "@mui/icons-material/FilterList";
 
 const Pane2 = () => {

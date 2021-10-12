@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import { I_User } from "@types";
+import { I_User, T_Freq3 } from "@types";
 import { CatchingPokemon } from "@mui/icons-material";
 
 const IMG_URL = "https://picsum.photos/200/300";
@@ -20,8 +20,8 @@ export const user: I_User = {
   bloodType: "A",
   bodyType: "마른",
   religion: "무교",
-  drinkingFreq: 0.5,
-  smokingFreq: 1,
+  drinkingFreq: 0,
+  smokingFreq: 0,
   birthday: {
     yyyy: 19999,
     mm: 10,

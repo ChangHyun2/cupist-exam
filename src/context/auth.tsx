@@ -1,8 +1,8 @@
-import { createContext, useContext } from "react";
+import { createContext } from "react";
 import { I_User } from "@types";
 import { me } from "@db/users";
 
-const AuthContext = createContext(me);
+export const AuthContext = createContext(me);
 
 export const AuthContextProvider = ({
   children,
@@ -14,5 +14,3 @@ export const AuthContextProvider = ({
 
   return <AuthContext.Provider value={me}>{children}</AuthContext.Provider>;
 };
-
-export const useAuth = () => useContext(AuthContext);

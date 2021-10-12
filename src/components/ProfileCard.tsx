@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import Button from "@components/Button";
+import Button from "@components/UI/Button";
 import { I_User } from "@types";
 import s from "csd";
 

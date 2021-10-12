@@ -4,8 +4,8 @@ import { css } from "@emotion/react";
 import s from "csd";
 import { I_User } from "@types";
 
-import Sliders from "@components/Sliders";
-import Button from "@components/Button";
+import Sliders from "@components/UI/Sliders";
+import Button from "@components/UI/Button";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import InfoIcon from "@mui/icons-material/Info";
 import CloseIcon from "@mui/icons-material/Close";

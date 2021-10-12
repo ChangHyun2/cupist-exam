@@ -4,7 +4,7 @@ import s from "csd";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { I_Toggle } from "@types";
-import { IconButton } from "@components/Button";
+import { IconButton } from "@UI/Button";
 import { CloseOutlined } from "@mui/icons-material";
 
 const animationStyles = {
@@ -28,9 +28,7 @@ const animationStyles = {
 
 interface I_DrawerProps {
   title: string;
-  children: (args: {
-    handleClose: (e: React.MouseEvent) => void;
-  }) => JSX.Element | string;
+  children: (args: { closeDrawer: () => void }) => JSX.Element | string;
   toggler: I_Toggle;
   duration?: number;
   from?: "bottom" | "right";
@@ -70,10 +68,14 @@ export default function Drawer({
   const closed = useRef(false);
   const [ds, setDS] = useState(animationStyles[from].default);
 
-  const handleClose = (e: React.MouseEvent) => {
+  const closeDrawer = () => {
     setDS((prev) => prev + animationStyles[from].onUnMount);
 
     closed.current = true;
+  };
+
+  const handleClose = (e: React.MouseEvent) => {
+    closeDrawer();
   };
 
   const handleTransitionEnd = (e: React.TransitionEvent) => {
@@ -118,7 +120,7 @@ export default function Drawer({
           </div>
         </header>
       )}
-      {children({ handleClose })}
+      {children({ closeDrawer })}
     </div>
   );
 
