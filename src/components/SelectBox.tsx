@@ -1,6 +1,7 @@
 import React from "react";
-import s from "csd";
 import styled from "@emotion/styled";
+import s from "csd";
+
 import Button from "@UI/Button";
 
 // generic을 사용해서 default와 options의 item 타입을 일치시키는 방법??
@@ -39,7 +40,6 @@ export default React.forwardRef<HTMLUListElement, I_SelectBoxProps>(
     ref
   ) {
     const defaultRef = React.useRef<HTMLLIElement>(null);
-    const [focusedDefaultValue, setFocusedDefaultValue] = React.useState(false);
 
     const [selected, setSelected] = React.useState(
       Array.isArray(defaultValue)

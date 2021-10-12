@@ -1,5 +1,4 @@
 import { I_User, T_Gender } from "@types";
-import { v4 as uuidv4 } from "uuid";
 import { timer } from "@utils";
 import { females } from "../db/users";
 import { males } from "../db/users";

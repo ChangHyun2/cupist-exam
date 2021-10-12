@@ -1,7 +1,8 @@
 import { css } from "@emotion/react";
-import Button from "@components/UI/Button";
-import { I_User } from "@types";
 import s from "csd";
+import { I_User } from "@types";
+
+import Button from "@components/UI/Button";
 
 interface I_ProfileCardProps {
   user: I_User;

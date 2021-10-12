@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import s from "csd";
-import { useUsers } from "@hooks";
-
 import { I_User } from "@types";
+
+import { useUsers } from "@hooks";
 import ProfileCardWithCarousel from "@components/ProfileCardWithCarousel";
 import ProfileCard from "@components/ProfileCard";
 
@@ -15,7 +15,7 @@ const StyledRecommendUsers = styled.div`
   scroll-padding-top: 5px;
 
   > * {
-    height: calc(100vh - 120px);
+    height: calc(100% - 130px);
     scroll-snap-align: start;
   }
 `;

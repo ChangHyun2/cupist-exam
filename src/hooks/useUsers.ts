@@ -1,5 +1,6 @@
 import { Reducer, useReducer, useEffect } from "react";
 import { T_Users } from "@types";
+
 import { getUsers } from "../api/users";
 
 type T_State = {

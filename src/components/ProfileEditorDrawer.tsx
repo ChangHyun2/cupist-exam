@@ -1,7 +1,6 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import { Route } from "react-router-dom";
 import Link from "@UI/Link";
-import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import s from "csd";
 import Drawer from "@UI/Drawer";
@@ -10,19 +9,11 @@ import Modal from "@UI/Modal";
 import TitleDialog from "@UI/TitleDialog";
 import { useToggle, useAuth } from "@hooks";
 import SelectBox from "@components/SelectBox";
-import {
-  I_BirthDay,
-  I_Location,
-  I_Education,
-  I_User,
-  I_Toggle,
-  T_Freq3,
-} from "@types";
+import { I_BirthDay, I_Location, I_Education, I_User, I_Toggle } from "@types";
 import { freq3ToStr } from "@constant";
 import {
   bloodType,
   bodyType,
-  concern,
   educationType,
   freq3,
   personalities,
@@ -35,7 +26,7 @@ interface I_ProfieEditorDrawerProps {
   toggler: I_Toggle;
 }
 
-const formContext = React.createContext({});
+// const formContext = React.createContext({});
 
 const StyledProfileEditor = styled.div`
   p {
@@ -135,7 +126,6 @@ const ListItem = ({
 export default function ProfileEditorDrawer({
   toggler,
 }: I_ProfieEditorDrawerProps) {
-  const modalToggler = useToggle({ initialOn: false });
   const me = useAuth();
 
   console.log(me);

@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
-
 export type T_Female = "female";
 export type T_Male = "male";
 export type T_URL = string;

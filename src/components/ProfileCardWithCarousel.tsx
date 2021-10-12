@@ -69,7 +69,7 @@ export default function ProfileCardWithCarousel({
     const domRect = domRectRef.current;
 
     if (domRect) {
-      const { left, right, width } = domRect;
+      const { left, right } = domRect;
 
       const mid = (left + right) / 2;
 

@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import styled from "@emotion/styled";
+import s from "csd";
 
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import HomeIcon from "@mui/icons-material/Home";
@@ -11,7 +12,6 @@ import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import PersonIcon from "@mui/icons-material/Person";
-import s from "csd";
 
 const StyledFootNav = styled.nav`
   position: fixed;

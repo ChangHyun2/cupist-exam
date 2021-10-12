@@ -1,6 +1,6 @@
 import React from "react";
-import s from "csd";
 import styled from "@emotion/styled";
+import s from "csd";
 
 const sizeCSS = {
   xs: "padding: 5px 10px; font-size: 12px; border-radius: 3px;",

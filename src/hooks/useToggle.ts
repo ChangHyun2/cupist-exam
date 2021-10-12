@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { I_Toggle, T_BusinessJob } from "@types";
+import { I_Toggle } from "@types";
 
 type T_UseToggleOption = {
   initialOn?: boolean;

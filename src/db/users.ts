@@ -1,6 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import { I_User, T_Freq3 } from "@types";
-import { CatchingPokemon } from "@mui/icons-material";
+import { I_User } from "@types";
 
 const IMG_URL = "https://picsum.photos/200/300";
 const copyObj = (obj: { [index: string]: any }) =>

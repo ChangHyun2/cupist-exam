@@ -1,13 +1,12 @@
-import React, { ReactElement } from "react";
-import Divider from "@UI/Divider";
-import s from "csd";
+import React from "react";
 import { css } from "@emotion/react";
-import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
+import s from "csd";
+import Divider from "@UI/Divider";
 
 interface I_DialogProps {
   title: string;
   detail?: string;
-  children: JSX.Element | Array<ReactJSXElement>;
+  children: JSX.Element | Array<JSX.Element>;
 }
 
 export default function TitleDialog({
