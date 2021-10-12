@@ -9,13 +9,13 @@ import ProfileCard from "@components/ProfileCard";
 
 const StyledRecommendUsers = styled.div`
   padding: 5px;
-  height: 100vh;
+  height: calc(100vh - 93px);
   overflow: scroll;
   scroll-snap-type: y mandatory;
   scroll-padding-top: 5px;
 
   > * {
-    height: calc(100% - 130px);
+    height: 90%;
     scroll-snap-align: start;
   }
 `;
